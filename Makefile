@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 21:05:01 by jinhokim          #+#    #+#              #
-#    Updated: 2022/09/20 05:29:39 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/09/22 15:09:50 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,14 @@ SRCS			= ./mandatory/main.c \
 				  ./mandatory/draw.c \
 				  ./mandatory/move.c \
 
-BONUS_SRCS		= ./bonus/main.c \
-				  ./bonus/init.c \
-				  ./bonus/gnl.c \
-				  ./bonus/gnl_utils.c \
-				  ./bonus/parsing.c \
-				  ./bonus/utils.c \
-				  ./bonus/draw.c \
-				  ./bonus/move.c \
+BONUS_SRCS		= ./bonus/main_bonus.c \
+				  ./bonus/init_bonus.c \
+				  ./bonus/gnl_bonus.c \
+				  ./bonus/gnl_utils_bonus.c \
+				  ./bonus/parsing_bonus.c \
+				  ./bonus/utils_bonus.c \
+				  ./bonus/draw_bonus.c \
+				  ./bonus/move_bonus.c \
 
 HEADER			= ./mandatory/so_long.h
 
