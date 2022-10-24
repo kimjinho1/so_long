@@ -6,11 +6,39 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 02:56:16 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/25 03:02:47 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 06:52:07 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	init_enemy_idx(t_info *info)
+{
+	int	i;
+	int	j;
+	int	enemy_i;
+
+	if (info->enemy_cnt < 1)
+		return ;
+	info->enemy_idx = (int **)malloc(sizeof(int *) * info->enemy_cnt);
+	i = -1;
+	enemy_i = 0;
+	while (++i < info->h)
+	{
+		j = -1;
+		while (++j < info->w)
+		{
+			if (info->map[i][j] == 'Q')
+			{
+				info->enemy_idx[enemy_i] = (int *)malloc(sizeof(int) * 2);
+				info->enemy_idx[enemy_i][0] = i;
+				info->enemy_idx[enemy_i][1] = j;
+				enemy_i++;
+			}
+		}
+	}
+	srand(time(NULL));
+}
 
 static int	*get_direction_enemy_can_move(t_info *info, int id)
 {

@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:07:45 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/25 02:08:11 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 08:49:44 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,32 @@ void	free_info(t_info *info)
 	while (++i < info->h)
 		free(info->map[i]);
 	free(info->map);
+	free(info->p_imgs);
 	if (info->enemy_cnt > 0)
 	{
 		while (info->enemy_cnt > 0)
 			free(info->enemy_idx[--info->enemy_cnt]);
 		free(info->enemy_idx);
 	}
+}
+
+static void	init_player_img(t_info *info)
+{
+	int	img_len;
+
+	info->p_imgs = (void **)malloc(sizeof(void *) * 6);
+	info->p_imgs[0] = mlx_xpm_file_to_image(info->mlx, \
+						"images/p0.xpm", &img_len, &img_len);
+	info->p_imgs[1] = mlx_xpm_file_to_image(info->mlx, \
+						"images/p1.xpm", &img_len, &img_len);
+	info->p_imgs[2] = mlx_xpm_file_to_image(info->mlx, \
+						"images/p2.xpm", &img_len, &img_len);
+	info->p_imgs[3] = mlx_xpm_file_to_image(info->mlx, \
+						"images/p3.xpm", &img_len, &img_len);
+	info->p_imgs[4] = mlx_xpm_file_to_image(info->mlx, \
+						"images/p4.xpm", &img_len, &img_len);
+	info->p_imgs[5] = mlx_xpm_file_to_image(info->mlx, \
+						"images/p5.xpm", &img_len, &img_len);
 }
 
 static void	init_img(t_info *info)
@@ -37,10 +57,6 @@ static void	init_img(t_info *info)
 			"images/g.xpm", &img_len, &img_len);
 	info->w_img = mlx_xpm_file_to_image(info->mlx,
 			"images/w.xpm", &img_len, &img_len);
-	info->p1_img = mlx_xpm_file_to_image(info->mlx,
-			"images/p1.xpm", &img_len, &img_len);
-	info->p2_img = mlx_xpm_file_to_image(info->mlx,
-			"images/p2.xpm", &img_len, &img_len);
 	info->enemy_img = mlx_xpm_file_to_image(info->mlx,
 			"images/enemy.xpm", &img_len, &img_len);
 	info->c_img = mlx_xpm_file_to_image(info->mlx,
@@ -49,6 +65,9 @@ static void	init_img(t_info *info)
 			"images/black.xpm", &img_len, &img_len);
 	info->exit_img = mlx_xpm_file_to_image(info->mlx,
 			"images/exit.xpm", &img_len, &img_len);
+	info->open_img = mlx_xpm_file_to_image(info->mlx,
+			"images/open.xpm", &img_len, &img_len);
+	init_player_img(info);
 }
 
 void	init_info(t_info *info, char *map_path)
@@ -84,32 +103,4 @@ void	init_die_img(t_info *info)
 		info->die_img = mlx_xpm_file_to_image(info->mlx, \
 			"images/you_die.xpm", &info->die_img_w, &info->die_img_h);
 	}
-}
-
-void	init_enemy_idx(t_info *info)
-{
-	int	i;
-	int	j;
-	int	enemy_i;
-
-	if (info->enemy_cnt < 1)
-		return ;
-	info->enemy_idx = (int **)malloc(sizeof(int *) * info->enemy_cnt);
-	i = -1;
-	enemy_i = 0;
-	while (++i < info->h)
-	{
-		j = -1;
-		while (++j < info->w)
-		{
-			if (info->map[i][j] == 'Q')
-			{
-				info->enemy_idx[enemy_i] = (int *)malloc(sizeof(int) * 2);
-				info->enemy_idx[enemy_i][0] = i;
-				info->enemy_idx[enemy_i][1] = j;
-				enemy_i++;
-			}
-		}
-	}
-	srand(time(NULL));
 }

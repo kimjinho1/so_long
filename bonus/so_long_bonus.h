@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:12:56 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/25 02:57:40 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 06:46:09 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <time.h>
 # include "../mlx/mlx.h"
 
-# define X_EVENT_KEY_RELEASE	3
+# define X_EVENT_KEY_RELEASE	2
 # define X_EVENT_KEY_EXIT		17
 
 # define KEY_ESC		53
@@ -55,11 +55,11 @@ typedef struct s_info
 	void	*win;
 	void	*g_img;
 	void	*w_img;
-	void	*p1_img;
-	void	*p2_img;
+	void	**p_imgs;
 	void	*c_img;
 	void	*enemy_img;
 	void	*exit_img;
+	void	*open_img;
 	void	*black_img;
 	void	*die_img;
 }				t_info;
@@ -87,7 +87,6 @@ char			*strjoin(char const *s1, char const *s2);
 
 void			parse_map(t_info *info);
 
-void			draw_img(t_info *info, char c, int x, int y);
 void			draw_map(t_info *info);
 
 void			enemy_control(t_info *info);

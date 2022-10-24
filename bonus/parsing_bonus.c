@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:08:00 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/24 23:43:38 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 03:45:00 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ static void	check_element(t_info *info, int i, int j)
 	if (info->map[i][j] == 'P')
 	{
 		info->p_cnt++;
-		info->y = i;
-		info->x = j;
+		info->y = 64 * i;
+		info->x = 64 * j;
 	}
 	else if (info->map[i][j] == 'C')
 		info->c_cnt++;

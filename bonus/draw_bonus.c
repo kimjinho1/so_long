@@ -6,31 +6,11 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:06:53 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/24 23:56:44 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 06:56:00 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
-void	draw_img(t_info *info, char c, int x, int y)
-{
-	mlx_put_image_to_window(info->mlx, info->win, info->g_img, x, y);
-	if (c == '1')
-		mlx_put_image_to_window(info->mlx, info->win, info->w_img, x, y);
-	else if (c == 'P')
-	{
-		if (info->move_cnt % 2)
-			mlx_put_image_to_window(info->mlx, info->win, info->p2_img, x, y);
-		else
-			mlx_put_image_to_window(info->mlx, info->win, info->p1_img, x, y);
-	}
-	else if (c == 'Q')
-		mlx_put_image_to_window(info->mlx, info->win, info->enemy_img, x, y);
-	else if (c == 'C')
-		mlx_put_image_to_window(info->mlx, info->win, info->c_img, x, y);
-	else if (c == 'E')
-		mlx_put_image_to_window(info->mlx, info->win, info->exit_img, x, y);
-}
 
 static void	draw_move_cnt(t_info *info)
 {
@@ -71,6 +51,24 @@ static void	draw_you_die(t_info *info)
 	mlx_put_image_to_window(info->mlx, info->win, info->die_img, w, h);
 }
 
+static void	draw_img(t_info *info, char c, int x, int y)
+{
+	mlx_put_image_to_window(info->mlx, info->win, info->g_img, x, y);
+	if (c == '1')
+		mlx_put_image_to_window(info->mlx, info->win, info->w_img, x, y);
+	else if (c == 'Q')
+		mlx_put_image_to_window(info->mlx, info->win, info->enemy_img, x, y);
+	else if (c == 'C')
+		mlx_put_image_to_window(info->mlx, info->win, info->c_img, x, y);
+	else if (c == 'E')
+	{
+		if (info->c_cnt > 0)
+			mlx_put_image_to_window(info->mlx, info->win, info->exit_img, x, y);
+		else
+			mlx_put_image_to_window(info->mlx, info->win, info->open_img, x, y);
+	}
+}
+
 void	draw_map(t_info *info)
 {
 	int		i;
@@ -87,8 +85,10 @@ void	draw_map(t_info *info)
 	{
 		j = -1;
 		while (++j < info->w)
-			draw_img(info, info->map[i][j], \
-					j * info->img_len, i * info->img_len);
+			draw_img(info, info->map[i][j], j * info->img_len, \
+						i * info->img_len);
 	}
+	mlx_put_image_to_window(info->mlx, info->win, \
+						info->p_imgs[info->move_cnt % 6], info->x, info->y);
 	draw_move_cnt(info);
 }
