@@ -6,11 +6,24 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 20:54:46 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/20 05:27:16 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 08:46:45 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	check_ber(char *path)
+{
+	int	i;
+
+	i = ft_strlen(path);
+	if (i < 5)
+		return (0);
+	if (path[i - 4] != '.' || path[i - 3] != 'b' || path[i - 2] != 'e' || \
+			path[i - 1] != 'r')
+		return (0);
+	return (1);
+}
 
 int	main(int ac, char **av)
 {
@@ -18,6 +31,8 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		perror_exit("argument error");
+	if (!check_ber(av[1]))
+		perror_exit("infile error");
 	init_info(&info, av[1]);
 	parse_map(&info);
 	info.win = mlx_new_window(info.mlx, info.img_len * info.w,

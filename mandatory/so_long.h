@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:53:10 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/20 00:44:40 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 08:48:13 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include "../mlx/mlx.h"
 
-# define X_EVENT_KEY_RELEASE	3
+# define X_EVENT_KEY_RELEASE	2
 # define X_EVENT_KEY_EXIT		17
 
 # define KEY_ESC		53
@@ -61,6 +61,8 @@ char			*ft_strdup(const char *s1);
 char			*ft_strjoin(char *s1, char *s2);
 
 int				get_next_line(int fd, char **line);
+
+int				check_ber(char *path);
 
 void			init_info(t_info *info, char *map_path);
 void			free_info(t_info *info);

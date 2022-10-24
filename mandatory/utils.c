@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 23:00:00 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/20 05:06:54 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 08:40:11 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	init_info(t_info *info, char *map_path)
 	info->c_img = mlx_xpm_file_to_image(info->mlx,
 			"images/c.xpm", &img_len, &img_len);
 	info->e_img = mlx_xpm_file_to_image(info->mlx,
-			"images/exit.xpm", &img_len, &img_len);
+			"images/open.xpm", &img_len, &img_len);
 }
 
 void	free_info(t_info *info)
