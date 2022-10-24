@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 21:05:01 by jinhokim          #+#    #+#              #
-#    Updated: 2022/09/22 15:09:50 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/10/24 21:34:12 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ BONUS_SRCS		= ./bonus/main_bonus.c \
 				  ./bonus/gnl_utils_bonus.c \
 				  ./bonus/parsing_bonus.c \
 				  ./bonus/utils_bonus.c \
+				  ./bonus/utils_bonus2.c \
 				  ./bonus/draw_bonus.c \
 				  ./bonus/move_bonus.c \
 

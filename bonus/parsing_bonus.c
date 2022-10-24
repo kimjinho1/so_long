@@ -6,13 +6,13 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:08:00 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/22 15:08:02 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/24 23:43:38 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	check_map_width_height(t_info *info)
+static int	check_map_width_height(t_info *info)
 {
 	int		fd;
 	char	*line;
@@ -41,7 +41,7 @@ int	check_map_width_height(t_info *info)
 	return (1);
 }
 
-void	check_wall(t_info *info)
+static void	check_wall(t_info *info)
 {
 	int	i;
 	int	j;
@@ -66,7 +66,7 @@ void	check_wall(t_info *info)
 	}
 }
 
-void	check_element(t_info *info, int i, int j)
+static void	check_element(t_info *info, int i, int j)
 {
 	if (info->map[i][j] == 'P')
 	{
@@ -78,12 +78,14 @@ void	check_element(t_info *info, int i, int j)
 		info->c_cnt++;
 	else if (info->map[i][j] == 'E')
 		info->e_cnt++;
+	else if (info->map[i][j] == 'Q')
+		info->enemy_cnt++;
 	else if (info->map[i][j] != '0' && info->map[i][j] != '1'
 				&& info->map[i][j] != 'Q')
 		perror_free_exit("element error", info);
 }
 
-void	check_map_element(t_info *info)
+static void	check_map_element(t_info *info)
 {
 	int	i;
 	int	j;
