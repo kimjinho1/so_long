@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:12:56 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/25 00:29:56 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 02:57:40 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void			parse_map(t_info *info);
 
 void			draw_img(t_info *info, char c, int x, int y);
 void			draw_map(t_info *info);
+
+void			enemy_control(t_info *info);
 
 int				key_press(int key, t_info *info);
 

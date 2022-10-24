@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 21:05:01 by jinhokim          #+#    #+#              #
-#    Updated: 2022/10/24 21:34:12 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/10/25 02:56:46 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ BONUS_SRCS		= ./bonus/main_bonus.c \
 				  ./bonus/utils_bonus2.c \
 				  ./bonus/draw_bonus.c \
 				  ./bonus/move_bonus.c \
+				  ./bonus/enemy_bonus.c \
 
 HEADER			= ./mandatory/so_long.h
 

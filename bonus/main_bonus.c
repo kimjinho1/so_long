@@ -6,20 +6,14 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:09:17 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/25 02:38:19 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/25 03:06:34 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	a(void)
-{
-	system("leaks so_long");
-}
-
 int	main(int ac, char **av)
 {
-	atexit(a);
 	t_info	info;
 
 	if (ac != 2)
